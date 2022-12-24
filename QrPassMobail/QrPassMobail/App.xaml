@@ -8,7 +8,7 @@
     <Application.Resources>
         <ResourceDictionary>
 
-            <Color x:Key="Primary">#C9A86B</Color>
+            <Color x:Key="Primary">#0DA2F6</Color>
             <Color x:Key="Secondary">#DFD8F7</Color>
             <Color x:Key="Tertiary">#2c82ec</Color>
             <Color x:Key="White">White</Color>
@@ -53,14 +53,14 @@
 
             <!--<Color x:Key="BackgroundColorDark">#202125</Color>
     <Color x:Key="BackgroundColorLight">#f2f4f7</Color>-->
-            <Color x:Key="BackgroundColorDark">#2D2D2D</Color>
-            <Color x:Key="BackgroundColorLight">#ffffff</Color>
+            <Color x:Key="BackgroundColorDark">#2C2937</Color>
+            <Color x:Key="BackgroundColorLight">#EEEEFA</Color>
             <Color x:Key="BackgroundColorTransperent">Transparent</Color>
             <Color x:Key="TextColorDark">#ffffff</Color>
             <Color x:Key="TextColorLight">#474747</Color>
 
-            <Color x:Key="TabBarTextColorDark">#C9A86B</Color>
-            <Color x:Key="TabBarTextColorLight">#C9A86B</Color>
+            <Color x:Key="TabBarTextColorDark">#0DA2F6</Color>
+            <Color x:Key="TabBarTextColorLight">#0DA2F6</Color>
             <Color x:Key="TabBarTextColorUnselected">#cacaca</Color>
 
             <Color x:Key="PlaceholderTextColorDark">#acacac</Color>
@@ -73,18 +73,18 @@
             <Color x:Key="BoraCastomColorLight">#C5CCD6</Color>
             <Color x:Key="BoraElementColorLight">#F3F3F8</Color>
             <Color x:Key="BoraElementColorDark">#2A2B2F</Color>
-            <Color x:Key="HeaderBarBackgroundColorLight">#f2f4f7</Color>
-            <Color x:Key="HeaderBarBackgroundColorDark">#4D4D4D</Color>
+            <Color x:Key="HeaderBarBackgroundColorLight">#BCC5E7</Color>
+            <Color x:Key="HeaderBarBackgroundColorDark">#3D364E</Color>
             <Color x:Key="HeaderBarBackgroundColorNetral">#929397</Color>
             <Color x:Key="HeaderBarTextColorLight">#000000</Color>
             <Color x:Key="HeaderBarTextColorDark">#FFFFFF</Color>
-            <Color x:Key="ButtonBackgroundColorLight">#C9A86B</Color>
-            <Color x:Key="ButtonBackgroundColorDark">#C9A86B</Color>
+            <Color x:Key="ButtonBackgroundColorLight">#0DA2F6</Color>
+            <Color x:Key="ButtonBackgroundColorDark">#0DA2F6</Color>
             <Color x:Key="ButtonBackgroundDisabledColorLight">#737373</Color>
             <Color x:Key="ButtonBackgroundDisabledColorDark">#737373</Color>
             <Color x:Key="ButtonTextColorLight">#FFFFFF</Color>
             <Color x:Key="ButtonTextColorDark">#FFFFFF</Color>
-            <Color x:Key="AccentColorLight">#C9A86B</Color>
+            <Color x:Key="AccentColorLight">#0DA2F6</Color>
             <Color x:Key="AccentColorDark">#111111</Color>
             <Color x:Key="PrimaryBackgroundDark">#202125</Color>
             <Color x:Key="PrimaryBackgroundLight">#f5f5f5</Color>
