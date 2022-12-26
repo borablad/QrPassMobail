@@ -1,12 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QrPassMobail.Views.MainPage">
+             x:Class="QrPassMobail.Views.MainPage"
+             xmlns:fa="clr-namespace:FontAwesome"
+             xmlns:vm="clr-namespace:QrPassMobail.ViewModels"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding AppVersion}" FontAttributes="Bold" FontSize="Micro" Margin="10,5" HorizontalOptions="End"/>
+            <Frame CornerRadius="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="280" WidthRequest="280">
+                <Label Text="{x:Static fa:FontAwesomeIcons.Qrcode}" FontFamily="FAS" FontAttributes="Bold" FontSize="125" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="30"/>
+            </Frame>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

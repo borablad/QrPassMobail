@@ -73,7 +73,7 @@
             <Color x:Key="BoraCastomColorLight">#C5CCD6</Color>
             <Color x:Key="BoraElementColorLight">#F3F3F8</Color>
             <Color x:Key="BoraElementColorDark">#2A2B2F</Color>
-            <Color x:Key="HeaderBarBackgroundColorLight">#BCC5E7</Color>
+            <Color x:Key="HeaderBarBackgroundColorLight">#fff</Color>
             <Color x:Key="HeaderBarBackgroundColorDark">#3D364E</Color>
             <Color x:Key="HeaderBarBackgroundColorNetral">#929397</Color>
             <Color x:Key="HeaderBarTextColorLight">#000000</Color>
@@ -211,7 +211,7 @@
                 <Setter Property="Padding" Value="0" />
                 <!--<Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray950}}" />-->
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource HeaderBarBackgroundColorLight}, Dark={StaticResource HeaderBarBackgroundColorDark}}" />
-                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="CornerRadius" Value="8" />
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">

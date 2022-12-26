@@ -14,29 +14,39 @@
     <ContentPage.Content>
         <Grid >
 
-            <Frame BorderColor="{StaticResource Primary}" Margin="60" Grid.Row="0" HorizontalOptions="Center" BackgroundColor="Transparent" VerticalOptions="StartAndExpand">
-                <Label Text="{x:Static fa:FontAwesomeIcons.Qrcode}" FontFamily="FAS" FontAttributes="Bold" FontSize="55" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Margin="30"/>
+            <Frame BackgroundColor="{StaticResource Primary}" Margin="60" Grid.Row="0" HorizontalOptions="Center"  VerticalOptions="StartAndExpand">
+                <Frame Margin="8" CornerRadius="13" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" >
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Qrcode}" FontFamily="FAS" FontAttributes="Bold" FontSize="75" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Margin="30"/>
+                </Frame>
             </Frame>
 
             <StackLayout  VerticalOptions="CenterAndExpand" Padding="50" Spacing="0" TranslationY="30" >
                 
                 <Label Text="Лоин"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>
-                <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5"  CornerRadius="15" >
+                <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="15" >
 
                     <Entry Text="{Binding UserLogin}" Margin="10,5"  Placeholder="Введите логин"  />
                 </Frame>
 
                 <Label Text="Пороль"  FontAttributes="Bold"  FontSize="Micro"  Margin="10,5" />
-                <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5" Padding="0" CornerRadius="15">
+                <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="15">
 
                     <Entry Text="{Binding UserPassword}" Margin="10,5" FontSize="Default" Placeholder="Введите пороль" IsPassword="True" />
                 </Frame>
-                <Label Text="Забыли пороль?"  FontAttributes="Bold" HorizontalOptions="End" FontSize="Small"  Margin="10" />
+
+                <Label  FontAttributes="Bold" HorizontalOptions="End" FontSize="Small"  Margin="0,10" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Забыли пороль?" />
+                            <Span Text="{x:Static fa:FontAwesomeIcons.ChevronRight}" FontFamily="FAS" FontAttributes="Bold" FontSize="Body" TextColor="{StaticResource Primary}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
 
 
 
-                <Button Text="Вход"  Command="{Binding LoginCommand}" Padding="0,15" HorizontalOptions="FillAndExpand" Margin="5" BackgroundColor="{StaticResource Primary}" CornerRadius="15"/>
+                <Button Text="Вход"  Command="{Binding LoginCommand}" Padding="0,15" HorizontalOptions="FillAndExpand" Margin="0,25" BackgroundColor="{StaticResource Primary}" CornerRadius="15"/>
 
 
             </StackLayout>

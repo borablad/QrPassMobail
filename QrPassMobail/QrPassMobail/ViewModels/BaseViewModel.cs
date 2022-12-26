@@ -10,6 +10,7 @@ namespace QrPassMobail.ViewModels
 {
     public partial class BaseViewModel : INotifyPropertyChanged
     {
+        public string AppVersion = "1,001";
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;
