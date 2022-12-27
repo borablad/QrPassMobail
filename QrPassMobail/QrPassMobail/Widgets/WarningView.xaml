@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+               x:Class="QrPassMobail.Widgets.WarningView"
+               xmlns:vm ="clr-namespace:QrPassMobail.ViewModels"
+               x:DataType="vm:WarningViewModel"
+               Color="Transparent">
+    <toolkit:Popup.BindingContext>
+        <vm:WarningViewModel/>
+    </toolkit:Popup.BindingContext>
+    <toolkit:Popup.Resources>
+        <ResourceDictionary>
+            <toolkit:IsNullOrEmptyConverter x:Key="IsNullOrEmptyConverter"/>
+            <toolkit:IsNotNullOrEmptyConverter x:Key="IsNotNullOrEmptyConverter"/>
+        </ResourceDictionary>
+    </toolkit:Popup.Resources>
+        
+            <toolkit:Popup.Content>
+        <Grid BackgroundColor="Transparent" >
+            <Frame CornerRadius="20" VerticalOptions="Center" HorizontalOptions="Center" IsClippedToBounds="True">
+                <StackLayout   Padding="20" IsClippedToBounds="True" >
+                    <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" IsVisible="{Binding Title,Converter={StaticResource IsNotNullOrEmptyConverter}}"/>
+                    <!--IsVisible="{Binding Title,Converter={StaticResource IsNullOrEmptyConverter}}"-->
+                    <Label Text="{Binding Message}"  FontSize="Small" HorizontalOptions="CenterAndExpand" LineBreakMode="WordWrap" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CloseTappedCommand}"/>
+            </Grid.GestureRecognizers>
+        </Grid>
+    </toolkit:Popup.Content>
+</toolkit:Popup>
