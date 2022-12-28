@@ -7,7 +7,7 @@
              xmlns:fa="clr-namespace:FontAwesome"
              xmlns:vm="clr-namespace:QrPassMobail.ViewModels"
              x:Class="QrPassMobail.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="true">
     <ContentPage.BindingContext>
         <vm:LoginViewModel/>
     </ContentPage.BindingContext>

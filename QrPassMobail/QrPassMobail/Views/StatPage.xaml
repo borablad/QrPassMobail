@@ -4,53 +4,42 @@
              x:Class="QrPassMobail.Views.StatPage"
              xmlns:fa="clr-namespace:FontAwesome"
              xmlns:vm="clr-namespace:QrPassMobail.ViewModels"
+             xmlns:model="clr-namespace:QrPassMobail.Models"
              Shell.NavBarIsVisible="False">
     <ContentPage.BindingContext>
         <vm:StatPageViewModel/>
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="VisitTemplate" >
+                <Frame x:DataType="model:Visits" >
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{x:Static fa:FontAwesomeIcons.RightToBracket}" FontFamily="FAS" TextColor="{StaticResource GreenButton}" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+                        <Label Text="{Binding Username}" FontAttributes="Bold" Margin="5" FontSize="Body" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+                        <Label Text="{Binding Date}" FontAttributes="Bold" Margin="5" FontSize="Subtitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+                    </StackLayout>
+                </Frame>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="40,20" >
-                <Frame BackgroundColor="{StaticResource Primary}" >
-                    <Frame Margin="4" CornerRadius="12" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}">
-                        <Label Text="{x:Static fa:FontAwesomeIcons.User}" FontFamily="FAS" TextColor="{StaticResource Primary}" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="40,20" >
+                    <Frame BackgroundColor="{StaticResource Primary}" >
+                        <Frame Margin="4" CornerRadius="12" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}">
+                            <Label Text="{x:Static fa:FontAwesomeIcons.User}" FontFamily="FAS" TextColor="{StaticResource Primary}" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+                        </Frame>
                     </Frame>
-                </Frame>
-                <Label Text="User@gmail.com" FontAttributes="Bold" Margin="5" FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+                    <Label Text="User@gmail.com" FontAttributes="Bold" Margin="5" FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+                </StackLayout>
+                <StackLayout Padding="15,5" BindableLayout.ItemsSource="{Binding Visits}" BindableLayout.ItemTemplate="{StaticResource VisitTemplate}" Spacing="10">
+
+                </StackLayout>
             </StackLayout>
-            <StackLayout Padding="15,5" Spacing="10">
-                <Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{x:Static fa:FontAwesomeIcons.RightToBracket}" FontFamily="FAS" TextColor="{StaticResource GreenButton}" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                        <Label Text="User@gmail.com" FontAttributes="Bold" Margin="5" FontSize="Body" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                        <Label Text="21:47 25.12.2022" FontAttributes="Bold" Margin="5" FontSize="Subtitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                    </StackLayout>
-                </Frame><Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{x:Static fa:FontAwesomeIcons.RightToBracket}" FontFamily="FAS" TextColor="{StaticResource GreenButton}" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                        <Label Text="User@gmail.com" FontAttributes="Bold" Margin="5" FontSize="Body" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                        <Label Text="21:47 25.12.2022" FontAttributes="Bold" Margin="5" FontSize="Subtitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                    </StackLayout>
-                </Frame><Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{x:Static fa:FontAwesomeIcons.RightToBracket}" FontFamily="FAS" TextColor="{StaticResource GreenButton}" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                        <Label Text="User@gmail.com" FontAttributes="Bold" Margin="5" FontSize="Body" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                        <Label Text="21:47 25.12.2022" FontAttributes="Bold" Margin="5" FontSize="Subtitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                    </StackLayout>
-                </Frame><Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{x:Static fa:FontAwesomeIcons.RightToBracket}" FontFamily="FAS" TextColor="{StaticResource GreenButton}" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                        <Label Text="User@gmail.com" FontAttributes="Bold" Margin="5" FontSize="Body" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                        <Label Text="21:47 25.12.2022" FontAttributes="Bold" Margin="5" FontSize="Subtitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                    </StackLayout>
-                </Frame><Frame>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{x:Static fa:FontAwesomeIcons.RightToBracket}" FontFamily="FAS" TextColor="{StaticResource GreenButton}" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                        <Label Text="User@gmail.com" FontAttributes="Bold" Margin="5" FontSize="Body" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                        <Label Text="21:47 25.12.2022" FontAttributes="Bold" Margin="5" FontSize="Subtitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
+       
     </ContentPage.Content>
 </ContentPage>

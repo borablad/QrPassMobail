@@ -26,7 +26,7 @@
                 <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Dark={StaticResource Primary},Light={StaticResource Primary}}"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
-            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <!--<Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />-->
         </ResourceDictionary>
     </Shell.Resources>
 
@@ -49,7 +49,7 @@
                                   Color="{AppThemeBinding Dark={StaticResource PlaceholderTextColorDark},Light={StaticResource PlaceholderTextColorLight}}"/>
             </ShellContent.Icon>
         </ShellContent>
-        <ShellContent  Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}"  >
+        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}"  >
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FAS" Glyph="{x:Static fa:FontAwesomeIcons.Gear}"
                                   Color="{AppThemeBinding Dark={StaticResource PlaceholderTextColorDark},Light={StaticResource PlaceholderTextColorLight}}"/>

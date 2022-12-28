@@ -14,7 +14,12 @@ namespace QrPassMobail.Helpers
 
         public static string GetQr = "/Visit/GainQr";
         public static string Login = "/Auth/Token";
-        public static string Visits = "/Visits";
+
         public static string Register = "/User/Register";
+        #region Visits
+        public static string Visits = "/Visits";
+        public static string SendCodeVisit = "/Visits/";
+   
+        #endregion
     }
 }

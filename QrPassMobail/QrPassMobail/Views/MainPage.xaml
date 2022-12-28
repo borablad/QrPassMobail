@@ -4,17 +4,31 @@
              x:Class="QrPassMobail.Views.MainPage"
              xmlns:fa="clr-namespace:FontAwesome"
              xmlns:vm="clr-namespace:QrPassMobail.ViewModels"
-             Shell.NavBarIsVisible="False">
+             xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
     <ContentPage.BindingContext>
         <vm:MainPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
+        <Grid>
         <StackLayout>
             <Label Text="{Binding AppVersion}" FontAttributes="Bold" FontSize="Micro" Margin="10,5" HorizontalOptions="End"/>
-            <Frame CornerRadius="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="280" WidthRequest="280">
-                <Label Text="{x:Static fa:FontAwesomeIcons.Qrcode}" FontFamily="FAS" FontAttributes="Bold" FontSize="125" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="30"/>
+            <Frame CornerRadius="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="280" WidthRequest="280" >
+                <zxing:ZXingScannerView  x:Name="_scanView" IsScanning="{Binding IsSkanner}" OnScanResult="_scanView_OnScanResult" WidthRequest="270" HeightRequest="270">
+                    <!--<zxing:ZXingScannerView.Behaviors>
+                        <toolkit:EventToCommandBehavior EventName="OnScanResult" Command="{Binding ResultScanCommand}"/>
+                    </zxing:ZXingScannerView.Behaviors>-->
+                    
+
+                </zxing:ZXingScannerView>
             </Frame>
-            
+
         </StackLayout>
+             <Grid IsVisible="{Binding IsBusy}" BackgroundColor="{StaticResource TransperentDark}"  >
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Scale="0.3" Color="{StaticResource Primary}"/>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
