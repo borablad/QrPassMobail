@@ -47,7 +47,7 @@ namespace QrPassMobail.ViewModels
                
                
                 Preferences.Set("token", response);
-                Preferences.Set("token_type", $"bearer");
+                Preferences.Set("token_type", $"Bearer");
 
             }
             catch (Exception ex)

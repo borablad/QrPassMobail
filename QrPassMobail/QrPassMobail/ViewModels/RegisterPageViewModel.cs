@@ -1,10 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using QrPassMobail.Models;
+using QrPassMobail.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace QrPassMobail.ViewModels
 {
@@ -23,10 +25,10 @@ namespace QrPassMobail.ViewModels
                 return;
             }
 
-            if (Pass.Length < 8) {
+          /*  if (Pass.Length < 8) {
                 ShowWarning("Ошибка", "Пароль должен содержать не менее 8 симбволов");
                 return; 
-            }
+            }*/
             if (Pass != PasswordRepeat)
             {
                 ShowWarning("Ошибка", "Пароли не совпадают");
@@ -35,18 +37,26 @@ namespace QrPassMobail.ViewModels
 
             try
             {
-                var numb = Uname.Replace("+", "").Replace(" ", "");
+                Preferences.Set("token_type", $"");
 
-                var response = await DataStore.RegisterAsync(new UserDto { UserName = numb, Password = Pass });
-             
+                var response = await DataStore.RegisterAsync(new UserDto { UserName = Uname, Password = Pass });
+
+
+                var res = await DataStore.LoginAsync(new UserDto { UserName = Uname, Password = Pass });
                     SaveUserDadta();
                 
             
-                Preferences.Set("token", response);
-                Preferences.Set("token_type", $"bearer");
+                Preferences.Set("token", res);
+                Preferences.Set("token_type", $"Bearer");
+                await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
             }
             catch(Exception ex)
             {
+                if(ex.ToString().ToLower().Contains("exsist"))
+                {
+                    ShowWarning("Ошибка", "Пользователь уже существует");
+                    return;
+                }
                 ShowWarning("Ошибка", ex.ToString());
             }
             

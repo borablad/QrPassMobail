@@ -1,5 +1,6 @@
 ﻿using QrPassMobail.Helpers;
 using QrPassMobail.Services;
+using QrPassMobail.Services.rest_and_interface;
 using QrPassMobail.Views;
 using System;
 using Xamarin.Essentials;
@@ -15,7 +16,7 @@ namespace QrPassMobail
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<RestMockDataStore>();
             MainPage = new AppShell();
         }
 

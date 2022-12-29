@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace QrPassMobail.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegisterPage : ContentView
+    public partial class RegisterPage : ContentPage
     {
         public RegisterPage()
         {
