@@ -33,7 +33,7 @@ namespace QrPassMobail.Views
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    vm.ShowWarning("Error", "havno");
+                    vm.ShowWarning("Ошибка", "Qr не распознан");
                 });
                 return;
                // await Task.Delay(1000 - 7);

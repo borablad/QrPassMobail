@@ -11,6 +11,7 @@ namespace QrPassMobail.Services.rest_and_interface
         Task<string> LoginAsync(UserDto user);
         Task VisitCode(int code);
         Task<List<Visits>> getMyVisits();
+        Task<string> RegisterAsync(UserDto user);
 
     }
 }

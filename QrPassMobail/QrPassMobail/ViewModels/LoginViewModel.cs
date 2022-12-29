@@ -40,18 +40,12 @@ namespace QrPassMobail.ViewModels
                 }
                 // await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
                 var numb = UName.Replace("+", "").Replace(" ", "");
-                if (UName == UserName && Pass == Password && !string.IsNullOrWhiteSpace(Preferences.Get("token", "")) ||
-            !string.IsNullOrWhiteSpace(Preferences.Get("token_type", "")))
-                {
-                    await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-                    MessagingCenter.Send(this, "CheckUser");
-                }
+               
                 var response = await DataStore.LoginAsync(new UserDto { UserName = numb, Password = Pass });
-                if (UName != UserName)
-                {
-
-                }
-                SaveUserDadta();
+              
+                    SaveUserDadta();
+               
+               
                 Preferences.Set("token", response);
                 Preferences.Set("token_type", $"bearer");
 
@@ -70,6 +64,11 @@ namespace QrPassMobail.ViewModels
             }
             IsBusy = false;
             await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+        }
+
+        [RelayCommand]
+        private  async void GoToRegister() {
+            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
         }
         private void SaveUserDadta()
         {

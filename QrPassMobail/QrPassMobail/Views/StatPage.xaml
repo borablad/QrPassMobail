@@ -35,7 +35,7 @@
                     </Frame>
                     <Label Text="User@gmail.com" FontAttributes="Bold" Margin="5" FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
                 </StackLayout>
-                <StackLayout Padding="15,5" BindableLayout.ItemsSource="{Binding Visits}" BindableLayout.ItemTemplate="{StaticResource VisitTemplate}" Spacing="10">
+                <StackLayout Padding="15,5" BindableLayout.ItemsSource="{Binding Visits}" BindableLayout.ItemTemplate="{StaticResource VisitTemplatex}" Spacing="10">
 
                 </StackLayout>
             </StackLayout>

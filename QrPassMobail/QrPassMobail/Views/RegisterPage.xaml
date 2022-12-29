@@ -1,15 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QrPassMobail.Views.RegisterPage"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:fa="clr-namespace:FontAwesome"
              xmlns:vm="clr-namespace:QrPassMobail.ViewModels"
-             x:Class="QrPassMobail.Views.LoginPage"
              Shell.NavBarIsVisible="true">
     <ContentPage.BindingContext>
-        <vm:LoginViewModel/>
+        <vm:RegisterPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid >
@@ -21,17 +20,23 @@
             </Frame>
 
             <StackLayout  VerticalOptions="CenterAndExpand" Padding="50" Spacing="0" TranslationY="30" >
-                
-                <Label Text="Лоин"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>
+
+                <Label Text="Логин"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>
                 <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="15" >
 
-                    <Entry Text="{Binding UName}" Margin="10,5"  Placeholder="Введите логин"  />
+                    <Entry Text="{Binding Uname}" Margin="10,5"  Placeholder="Введите логин"  />
                 </Frame>
 
-                <Label Text="Пороль"  FontAttributes="Bold"  FontSize="Micro"  Margin="10,5" />
+                <Label Text="Пароль"  FontAttributes="Bold"  FontSize="Micro"  Margin="10,5" />
                 <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="15">
 
-                    <Entry Text="{Binding Pass}" Margin="10,5" FontSize="Default" Placeholder="Введите пороль" IsPassword="True" />
+                    <Entry Text="{Binding Pass}" Margin="10,5" FontSize="Default" Placeholder="Введите пароль" IsPassword="True" />
+                </Frame>
+
+               
+                <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="15">
+
+                    <Entry Text="{Binding PasswordRepeat}" Margin="10,5" FontSize="Default" Placeholder="Повторите пароль" IsPassword="True" />
                 </Frame>
 
                 <Label  FontAttributes="Bold" HorizontalOptions="End" FontSize="Small"  Margin="0,10" >
@@ -46,7 +51,7 @@
 
 
 
-                <Button Text="Вход"  Command="{Binding LoginCommand}" Padding="0,15" HorizontalOptions="FillAndExpand" Margin="0,25" BackgroundColor="{StaticResource Primary}" CornerRadius="15"/>
+                <Button Text="Вход"  Command="{Binding RegisterCommand}" Padding="0,15" HorizontalOptions="FillAndExpand" Margin="0,25" BackgroundColor="{StaticResource Primary}" CornerRadius="15"/>
 
 
             </StackLayout>
@@ -54,10 +59,10 @@
                 <Label Text="Нет аккаунта?" FontAttributes="Bold" FontSize="Small" HorizontalTextAlignment="Center"/>
                 <Label Text="Регистрация" FontAttributes="Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GoToRegisterCommand}"/>
+                        <TapGestureRecognizer />
                     </Label.GestureRecognizers>
                 </Label>
-                
+
 
             </StackLayout>
             <!--<Image  Source="{AppThemeBinding Dark=gosu_logo_w, Light=gosu_logo}" HeightRequest="20" HorizontalOptions="End" VerticalOptions="End" Margin="10"/>-->
@@ -66,5 +71,5 @@
                 <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Scale="0.3" Color="{StaticResource Primary}"/>
             </Grid>
         </Grid>
-        </ContentPage.Content>
-</ContentPage>
+    </ContentPage.Content>
+    </ContentPage>
