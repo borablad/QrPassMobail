@@ -34,7 +34,15 @@ namespace QrPassMobail.ViewModels
                 }); return; IsSkanner = true; }
             Device.BeginInvokeOnMainThread(async () =>
             {
-                ShowWarning("Susseful", "chel");
+                try
+                {
+                    await DataStore.VisitCode(code);
+                    ShowWarning("Успех", "Qr  пройден");
+                }
+                catch (Exception ex)
+                {
+                    ShowWarning("Ошибка",ex.Message) ;
+                }
             });
 
             IsSkanner = true;

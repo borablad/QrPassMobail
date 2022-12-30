@@ -8,6 +8,7 @@ using QrPassMobail.Helpers;
 using QrPassMobail.Helpers.REST;
 using ZXing.QrCode.Internal;
 using Newtonsoft.Json.Linq;
+using ZXing;
 
 namespace QrPassMobail.Services.rest_and_interface
 {
@@ -116,8 +117,9 @@ namespace QrPassMobail.Services.rest_and_interface
                 var response = await new RequestServiceREST().Get(Constans.Visits );
                 if (response.IsSuccessStatusCode)
                 {
-                    var responseData = await response.Content.ReadAsStringAsync();
-                    result = JsonConvert.DeserializeObject<List<Visits>>(responseData);
+                    string rs = JObject.Parse(await response.Content.ReadAsStringAsync())["detail"].ToString();
+                    
+                    result = JsonConvert.DeserializeObject<List<Visits>>(rs);
                    
                 }
                 else
@@ -134,6 +136,66 @@ namespace QrPassMobail.Services.rest_and_interface
           
 
             return result;
+        }
+
+
+        public async Task<bool> DeleteAllVisits()
+        {
+            try
+            {
+
+
+
+                var response = await new RequestServiceREST().Delete(Constans.DeleteAllVisits);
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+
+                }
+                else
+                {
+
+                    var responseData = await response.Content.ReadAsStringAsync();
+                    throw new Exception(responseData);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return false;
+
+        }
+
+
+        #endregion
+
+        #region users
+        public async Task<bool> DeleteUser(string id)
+        {
+            try
+            {
+
+
+
+                var response = await new RequestServiceREST().Delete(Constans.DeleteUser + $"?userId={id}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+
+                }
+                else
+                {
+
+                    var responseData = await response.Content.ReadAsStringAsync();
+                    throw new Exception(responseData);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return false;
         }
         #endregion
     }

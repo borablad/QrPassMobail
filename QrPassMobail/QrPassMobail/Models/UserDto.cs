@@ -17,8 +17,17 @@ namespace QrPassMobail.Models
         public string UserName { get; set; }=string.Empty;
         [JsonProperty("password")]
         public string Password { get; set; } = string.Empty;
+        [JsonProperty("isadmin")]
+        public bool IsAdmin { get; set; }
 
-      
+        [JsonProperty("isterminal")]
+        public bool IsTerminal { get; set; }
+
+        [JsonProperty("_id")]
+        public string Id { get; set; }=Guid.NewGuid().ToString();   
+
+
+
     }
     
 }
