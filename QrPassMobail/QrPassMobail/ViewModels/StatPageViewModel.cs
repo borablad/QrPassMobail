@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.CommunityToolkit.ObjectModel;
 
-namespace QrPassMobail.Views
+namespace QrPassMobail.ViewModels
 {
     public partial class StatPageViewModel : BaseViewModel
     {
