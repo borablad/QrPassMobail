@@ -12,7 +12,7 @@ namespace QrPassMobail.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-       private LoginViewModel vm;
+        private LoginViewModel vm;
         public LoginPage()
         {
             InitializeComponent();
@@ -20,10 +20,10 @@ namespace QrPassMobail.Views
             vm=(LoginViewModel)BindingContext;
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            vm.onAppering();
-        }
+            protected override void OnAppearing()
+            {
+                base.OnAppearing();
+                vm.onAppering();
+            }
     }
 }
