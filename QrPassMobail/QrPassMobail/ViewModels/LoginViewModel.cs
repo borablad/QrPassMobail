@@ -87,7 +87,7 @@ namespace QrPassMobail.ViewModels
 
         [RelayCommand]
         private  async void GoToRegister() {
-            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
+            await Shell.Current.GoToAsync($"{nameof(RegisterPage)}");
         }
         private void SaveUserDadta()
         {
