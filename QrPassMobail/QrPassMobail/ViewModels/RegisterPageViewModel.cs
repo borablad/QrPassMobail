@@ -37,8 +37,9 @@ namespace QrPassMobail.ViewModels
 
             try
             {
-                Preferences.Set("token_type", $"");
 
+             /*   Preferences.Set("token", "");
+                Preferences.Set("token_type", "");*/
                 var response = await DataStore.RegisterAsync(new UserDto { UserName = Uname, Password = Pass });
 
 
@@ -46,8 +47,8 @@ namespace QrPassMobail.ViewModels
                     SaveUserDadta();
                 
             
-                Preferences.Set("token", res);
-                Preferences.Set("token_type", $"Bearer");
+                Preferences.Set("access_token", res);
+                Preferences.Set("auth_scheme", $"Bearer");
                 await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
             }
             catch(Exception ex)

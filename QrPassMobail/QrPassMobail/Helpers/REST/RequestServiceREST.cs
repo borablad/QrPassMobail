@@ -37,8 +37,8 @@ namespace QrPassMobail.Helpers.REST
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Accept", "application/json");
 
-            var token = Preferences.Get("token", $"");
-            var token_type = Preferences.Get("token_type", $"bearer");
+            var token = Preferences.Get("access_token", $"");
+            var token_type = Preferences.Get("auth_scheme", $"Bearer");
 
             if (!string.IsNullOrEmpty(token))
             {

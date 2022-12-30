@@ -12,13 +12,13 @@ namespace QrPassMobail.Helpers
    
         public static string RestUrl = $"{Scheme}://{HostUrl}:{Port}/{{0}}";
 
-        public static string GetQr = "/Visit/GainQr";
+        public static string GetQr = "Visit/GainQr";
         public static string Login = "Auth/Token";
 
         public static string Register = "User/Register";
         #region Visits
-        public static string Visits = "/Visits";
-        public static string SendCodeVisit = "/Visits/";
+        public static string Visits = "Visits";
+        public static string SendCodeVisit = "Visits/";
    
         #endregion
     }

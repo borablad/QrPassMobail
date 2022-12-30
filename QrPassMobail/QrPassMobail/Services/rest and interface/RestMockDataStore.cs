@@ -52,9 +52,11 @@ namespace QrPassMobail.Services.rest_and_interface
                 var response = await new RequestServiceREST().Post(Constans.Register, request, "application/json");
                 if (response.IsSuccessStatusCode)
                 {
+                    return result;
                     var responseData = await response.Content.ReadAsStringAsync();
-                    //result = JsonConvert.DeserializeObject<string>(responseData);
-                    result = responseData.Replace("\"", "");
+                    result = JsonConvert.DeserializeObject<string>(responseData);
+                   // result = responseData.Replace("\"", "");
+                   
                 }
                 else
                 {
@@ -63,7 +65,7 @@ namespace QrPassMobail.Services.rest_and_interface
                 }
             }
             catch (Exception ex)
-            {
+             {
                 throw new Exception(ex.Message);
             }
             return result;
