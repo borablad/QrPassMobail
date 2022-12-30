@@ -5,67 +5,51 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:fa="clr-namespace:FontAwesome"
              xmlns:vm="clr-namespace:QrPassMobail.ViewModels"
-             Shell.NavBarIsVisible="true">
+             Shell.NavBarIsVisible="true"
+             Title="Регистрация" 
+             Shell.TabBarIsVisible="False"
+              >
     <ContentPage.BindingContext>
         <vm:RegisterPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid >
 
-            <Frame BackgroundColor="{StaticResource Primary}" Margin="60" Grid.Row="0" HorizontalOptions="Center"  VerticalOptions="StartAndExpand">
+            <Frame BackgroundColor="{StaticResource Primary}" Margin="40" Grid.Row="0" HorizontalOptions="Center"  VerticalOptions="StartAndExpand">
                 <Frame Margin="8" CornerRadius="13" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" >
                     <Label Text="{x:Static fa:FontAwesomeIcons.Qrcode}" FontFamily="FAS" FontAttributes="Bold" FontSize="75" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Margin="30"/>
                 </Frame>
             </Frame>
 
-            <StackLayout  VerticalOptions="CenterAndExpand" Padding="50" Spacing="0" TranslationY="30" >
+            <StackLayout Spacing="5"  VerticalOptions="CenterAndExpand" Padding="40"  TranslationY="30" >
 
                 <Label Text="Логин"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>
-                <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="15" >
+                <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="10" >
 
-                    <Entry Text="{Binding Uname}" Margin="10,5"  Placeholder="Введите логин"  />
+                    <Entry Text="{Binding Uname}"  Placeholder="Введите логин"  />
                 </Frame>
 
                 <Label Text="Пароль"  FontAttributes="Bold"  FontSize="Micro"  Margin="10,5" />
-                <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="15">
+                <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="10">
 
-                    <Entry Text="{Binding Pass}" Margin="10,5" FontSize="Default" Placeholder="Введите пароль" IsPassword="True" />
+                    <Entry Text="{Binding Pass}"  FontSize="Default" Placeholder="Введите пароль" IsPassword="True" />
                 </Frame>
 
-               
-                <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="15">
 
-                    <Entry Text="{Binding PasswordRepeat}" Margin="10,5" FontSize="Default" Placeholder="Повторите пароль" IsPassword="True" />
+                <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="10">
+
+                    <Entry Text="{Binding PasswordRepeat}" FontSize="Default" Placeholder="Повторите пароль" IsPassword="True" />
                 </Frame>
 
-                <Label  FontAttributes="Bold" HorizontalOptions="End" FontSize="Small"  Margin="0,10" >
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Забыли пороль?" />
-                            <Span Text="{x:Static fa:FontAwesomeIcons.ChevronRight}" FontFamily="FAS" FontAttributes="Bold" FontSize="Body" TextColor="{StaticResource Primary}" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
 
-
-
-
-                <Button Text="Вход"  Command="{Binding RegisterCommand}" Padding="0,15" HorizontalOptions="FillAndExpand" Margin="0,25" BackgroundColor="{StaticResource Primary}" CornerRadius="15"/>
+                <Button Text="Регистрация"  Command="{Binding RegisterCommand}" Padding="0,15" HorizontalOptions="FillAndExpand" Margin="0,25" BackgroundColor="{StaticResource Primary}" CornerRadius="10"/>
 
 
             </StackLayout>
-            <StackLayout  VerticalOptions="EndAndExpand" Margin="30" HorizontalOptions="Center">
-                <Label Text="Нет аккаунта?" FontAttributes="Bold" FontSize="Small" HorizontalTextAlignment="Center"/>
-                <Label Text="Регистрация" FontAttributes="Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
-                    </Label.GestureRecognizers>
-                </Label>
-
-
-            </StackLayout>
+            
             <!--<Image  Source="{AppThemeBinding Dark=gosu_logo_w, Light=gosu_logo}" HeightRequest="20" HorizontalOptions="End" VerticalOptions="End" Margin="10"/>-->
 
             <Grid IsVisible="{Binding IsBusy}" BackgroundColor="{StaticResource TransperentDark}"  >
