@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using QrPassMobail.Helpers;
 using QrPassMobail.Helpers.REST;
 using ZXing.QrCode.Internal;
+using Newtonsoft.Json.Linq;
 
 namespace QrPassMobail.Services.rest_and_interface
 {
@@ -26,8 +27,10 @@ namespace QrPassMobail.Services.rest_and_interface
                 if (response.IsSuccessStatusCode)
                 {
                     var responseData = await response.Content.ReadAsStringAsync();
-                    //result = JsonConvert.DeserializeObject<string>(responseData);
-                    result = responseData.Replace("\"", "");
+
+                    result = JObject.Parse(responseData)["access_token"].ToString();
+
+                    result.Replace("\"", "");
                 }
                 else
                 {
