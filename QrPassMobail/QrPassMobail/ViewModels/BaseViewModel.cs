@@ -25,6 +25,9 @@ namespace QrPassMobail.ViewModels
         string title = string.Empty;
         public string UserName { get => Preferences.Get(nameof(UserName), ""); set => Preferences.Set(nameof(UserName), value); }
         public string Password { get => Preferences.Get(nameof(Password), ""); set => Preferences.Set(nameof(Password), value); }
+        public static string Sheme { get => Preferences.Get(nameof(Sheme), "http"); set => Preferences.Set(nameof(Sheme), value); }
+        public static string Port { get => Preferences.Get(nameof(Port), "8000"); set => Preferences.Set(nameof(Port), value); }
+        public static string HostUrl { get => Preferences.Get(nameof(HostUrl), "192.168.31.62"); set => Preferences.Set(nameof(HostUrl), value); }
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)
