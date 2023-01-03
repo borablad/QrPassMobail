@@ -30,8 +30,8 @@ namespace QrPassMobail.ViewModels
             try {  await DataStore.VisitCode(code); } catch(Exception ex) {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    ShowWarning("Ошибка", ex.Message) ;
-                }); return; IsBusy = false; IsSkanner = true; }
+                    ShowWarning("Ошибка", ex.Message) ; 
+                }); IsBusy = false; IsSkanner = true; return;  }
      
 
             IsSkanner = true;
