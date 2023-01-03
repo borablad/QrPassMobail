@@ -42,7 +42,7 @@ namespace QrPassMobail.Helpers.REST
 
             if (!string.IsNullOrEmpty(token))
             {
-                client.DefaultRequestHeaders.Add("Authorization", $"{token} {token_type}");
+                client.DefaultRequestHeaders.Add("Authorization", $"{token_type} {token}");
             }
 
             return client;
