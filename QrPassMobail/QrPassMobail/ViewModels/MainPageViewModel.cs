@@ -26,24 +26,13 @@ namespace QrPassMobail.ViewModels
            
             IsBusy = true;
             IsSkanner = false;
-             IsSkanner = true;
+           
             try {  await DataStore.VisitCode(code); } catch(Exception ex) {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     ShowWarning("Ошибка", ex.Message) ;
-                }); return; IsSkanner = true; }
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                try
-                {
-                    await DataStore.VisitCode(code);
-                    ShowWarning("Успех", "Qr  пройден");
-                }
-                catch (Exception ex)
-                {
-                    ShowWarning("Ошибка",ex.Message) ;
-                }
-            });
+                }); return; IsBusy = false; IsSkanner = true; }
+     
 
             IsSkanner = true;
            
