@@ -14,7 +14,7 @@ namespace QrPassMobail.Helpers
     {
         public static void SetTheme()
         {
-            switch (Settings.Theme)
+            switch (Settings.CastTheme)
             {
                 //default
                 case 0:
