@@ -26,7 +26,7 @@ namespace QrPassMobail.ViewModels
             }
             catch
             {
-                ShowWarning("Ошибка", "Подключение не доступно");
+                ShowWarning("Ошибка", "Данных нет");
 
             }
 

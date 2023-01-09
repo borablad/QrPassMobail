@@ -16,7 +16,7 @@
         <StackLayout>
             <Label Text="{Binding AppVersion}" FontAttributes="Bold" FontSize="Micro" Margin="10,5" HorizontalOptions="End"/>
             <Frame CornerRadius="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="280" WidthRequest="280" >
-                    <zxing:ZXingScannerView  x:Name="_scanView" IsScanning="{Binding IsSkanner}" OnScanResult="_scanView_OnScanResult" WidthRequest="280" HeightRequest="280">
+                    <zxing:ZXingScannerView  x:Name="_scanView" IsScanning="True" OnScanResult="_scanView_OnScanResult" WidthRequest="280" HeightRequest="280">
                     <!--<zxing:ZXingScannerView.Behaviors>
                         <toolkit:EventToCommandBehavior EventName="OnScanResult" Command="{Binding ResultScanCommand}"/>
                     </zxing:ZXingScannerView.Behaviors>-->

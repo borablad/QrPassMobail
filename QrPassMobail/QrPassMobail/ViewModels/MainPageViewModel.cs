@@ -14,7 +14,7 @@ namespace QrPassMobail.ViewModels
     public partial class MainPageViewModel : BaseViewModel
     {
         [ObservableProperty]
-        private bool isSkanner = true;
+        private bool isSkanner = false;
 
       public MainPageViewModel()
         {
@@ -23,18 +23,25 @@ namespace QrPassMobail.ViewModels
         }
        public async Task ResultScan(int code)
         {
-           
+           if(IsSkanner) { return; }
             IsBusy = true;
-          //  IsSkanner = false;
+           IsSkanner = true;
            
-            try {  await DataStore.VisitCode(code); } catch(Exception ex) {
+            try {  
+                
+                await DataStore.VisitCode(code); 
+            
+            } catch(Exception ex) {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     ShowWarning("Ошибка", ex.Message) ; 
-                }); IsBusy = false; IsSkanner = true; return;  }
-     
+                }); IsBusy = false; IsSkanner = false; return;  }
 
-            IsSkanner = true;
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                ShowWarning("Заебись", "Чел ты крут мега крут");
+            });
+            IsSkanner = false;
            
             IsBusy = false;
             
