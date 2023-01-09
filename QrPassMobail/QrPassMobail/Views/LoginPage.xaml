@@ -21,6 +21,13 @@
                 </Frame>
             </Frame>
 
+            <Frame  Margin="15" Grid.Row="0" HorizontalOptions="End"  VerticalOptions="StartAndExpand">
+                <Label Text="{x:Static fa:FontAwesomeIcons.Gear}" FontFamily="FAS" FontAttributes="Bold" FontSize="Title"  HorizontalTextAlignment="Center" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToSettingsCommand}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
             <StackLayout  VerticalOptions="CenterAndExpand" Padding="40" Spacing="0" TranslationY="30" >
                 
                 <Label Text="Лоин"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>

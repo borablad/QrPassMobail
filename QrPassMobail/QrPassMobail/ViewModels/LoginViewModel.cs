@@ -43,6 +43,14 @@ namespace QrPassMobail.ViewModels
             }
 
         }
+
+        [RelayCommand]
+        private async void GoToSettings()
+        {
+            await Shell.Current.GoToAsync($"{nameof(SettingsPage)}");
+            return;
+        }
+
         [RelayCommand]
         private async void Login()
         {
