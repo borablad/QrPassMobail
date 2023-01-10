@@ -22,6 +22,9 @@
                 <Frame Margin="8" CornerRadius="13" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" >
                     <Label Text="{x:Static fa:FontAwesomeIcons.Qrcode}" FontFamily="FAS" FontAttributes="Bold" FontSize="75" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Margin="30"/>
                 </Frame>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2" Command="{Binding AdminCommand}" />
+                </Frame.GestureRecognizers>
             </Frame>
 
             <StackLayout Spacing="5"  VerticalOptions="CenterAndExpand" Padding="40"  TranslationY="30" >

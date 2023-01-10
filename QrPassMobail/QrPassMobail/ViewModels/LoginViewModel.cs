@@ -24,23 +24,24 @@ namespace QrPassMobail.ViewModels
         }
         internal async void onAppering()
         {
-           
-           /* if (string.IsNullOrWhiteSpace(UserName) && string.IsNullOrWhiteSpace(Password)) return;
             UName = UserName;
             Pass = Password;
-            try
-            {
-                IsBusy = true;
-                var response = await DataStore.LoginAsync(new UserDto { UserName = UserName, Password = Password });
-                Preferences.Set("access_token", response);
-                Preferences.Set("auth_scheme", $"Bearer");
-                IsBusy = false;
-                await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-            }
-            catch
-            {
+            /* if (string.IsNullOrWhiteSpace(UserName) && string.IsNullOrWhiteSpace(Password)) return;
+             UName = UserName;
+             Pass = Password;
+             try
+             {
+                 IsBusy = true;
+                 var response = await DataStore.LoginAsync(new UserDto { UserName = UserName, Password = Password });
+                 Preferences.Set("access_token", response);
+                 Preferences.Set("auth_scheme", $"Bearer");
+                 IsBusy = false;
+                 await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+             }
+             catch
+             {
 
-            }*/
+             }*/
 
         }
 

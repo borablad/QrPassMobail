@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using Android.Widget;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using QrPassMobail.Models;
 using QrPassMobail.Views;
@@ -14,6 +15,8 @@ namespace QrPassMobail.ViewModels
     {
         [ObservableProperty]
         private string uname, pass, passwordRepeat;
+
+        private bool isAdmin;
         public RegisterPageViewModel() { }
 
         [RelayCommand]
@@ -43,7 +46,7 @@ namespace QrPassMobail.ViewModels
                 var response = await DataStore.RegisterAsync(new UserDto { UserName = Uname, Password = Pass });
 
 
-                var res = await DataStore.LoginAsync(new UserDto { UserName = Uname, Password = Pass });
+                var res = await DataStore.LoginAsync(new UserDto { UserName = Uname, Password = Pass,IsAdmin=isAdmin });
                     SaveUserDadta();
                 
             
@@ -62,10 +65,19 @@ namespace QrPassMobail.ViewModels
             }
             
         }
+
+
         private void SaveUserDadta()
         {
             UserName = Uname;
             Password = Pass;
+        }
+        [RelayCommand]
+        private void Admin()
+        {
+            isAdmin= true;
+            ShowToast("Заебись ты админ челллл");
+           // ShowWarning("Заебись", "ты админ челллл");
         }
     }
 }

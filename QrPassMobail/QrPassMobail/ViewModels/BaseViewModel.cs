@@ -10,6 +10,7 @@ using Xamarin.CommunityToolkit.Extensions;
 using QrPassMobail.Widgets;
 using Xamarin.Essentials;
 using QrPassMobail.Services.rest_and_interface;
+using System.Threading.Tasks;
 
 namespace QrPassMobail.ViewModels
 {
@@ -54,6 +55,11 @@ namespace QrPassMobail.ViewModels
             {
 
             }
+        }
+
+        public static async Task ShowToast(string message)
+        {
+            await App.Current.MainPage.DisplayToastAsync(message, 1000);
         }
 
         #region INotifyPropertyChanged
