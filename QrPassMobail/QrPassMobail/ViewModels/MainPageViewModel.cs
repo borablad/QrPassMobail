@@ -60,7 +60,7 @@ namespace QrPassMobail.ViewModels
 
 
             //await Navigation.PushAsync(new UpcomingAppointmentsPage());
-             await Shell.Current.GoToAsync("StatPage");
+             await Shell.Current.GoToAsync("..StatPage");
             IsSkanner = false;
            
             IsBusy = false;
