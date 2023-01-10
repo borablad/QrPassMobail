@@ -25,7 +25,7 @@ namespace QrPassMobail.ViewModels
         internal async void onAppering()
         {
            
-            if (string.IsNullOrWhiteSpace(UserName) && string.IsNullOrWhiteSpace(Password)) return;
+           /* if (string.IsNullOrWhiteSpace(UserName) && string.IsNullOrWhiteSpace(Password)) return;
             UName = UserName;
             Pass = Password;
             try
@@ -40,7 +40,7 @@ namespace QrPassMobail.ViewModels
             catch
             {
 
-            }
+            }*/
 
         }
 

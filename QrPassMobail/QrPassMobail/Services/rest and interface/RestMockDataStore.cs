@@ -84,7 +84,7 @@ namespace QrPassMobail.Services.rest_and_interface
             {
 
 
-                var response = await new RequestServiceREST().Get(Constans.SendCodeVisit + $"?code={code}");
+                var response = await new RequestServiceREST().Get(Constans.SendCodeVisit + $"{code}");
                 if (response.IsSuccessStatusCode)
                 {
                     result = await response.Content.ReadAsStringAsync();
@@ -118,8 +118,9 @@ namespace QrPassMobail.Services.rest_and_interface
                 if (response.IsSuccessStatusCode)
                 {
                     string rs = JObject.Parse(await response.Content.ReadAsStringAsync())["detail"].ToString();
+                    string ph = JObject.Parse(rs)["data"].ToString();
                     
-                    result = JsonConvert.DeserializeObject<List<Visits>>(rs);
+                    result = JsonConvert.DeserializeObject<List<Visits>>(ph);
                    
                 }
                 else
