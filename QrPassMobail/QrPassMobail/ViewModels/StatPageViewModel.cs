@@ -1,9 +1,11 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using Android.Widget;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using QrPassMobail.Models;
 using QrPassMobail.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xamarin.CommunityToolkit.ObjectModel;
 
@@ -13,6 +15,11 @@ namespace QrPassMobail.ViewModels
     {
         public ObservableRangeCollection<Visits> Visits { get; set; } = new ObservableRangeCollection<Visits>();
         public List<Visits> tempVisits { get; set; } = new List<Visits>();
+
+        [ObservableProperty]
+        private bool isClickEnterFilter, isClickAllFilter, isClickExitFilter;
+
+
         public StatPageViewModel()
         {
 
@@ -35,7 +42,7 @@ namespace QrPassMobail.ViewModels
             tempVisits.Add(new Models.Visits { Date = DateTime.Now, id = "1", Username = "boblandy" });
 
             Visits.ReplaceRange(tempVisits);
-
+            Filtred();
 
         }
 
@@ -76,6 +83,28 @@ namespace QrPassMobail.ViewModels
             {
                 ShowWarning("Ошибка", ex.Message);
             }
+        }
+
+
+
+        [RelayCommand]
+        private void Filtred()
+        {
+            var tempVisitList = new List<Visits>();
+
+            if (IsClickAllFilter)
+            {
+                Visits.ReplaceRange(tempVisits);
+                return;
+            }
+
+            tempVisitList = IsClickEnterFilter ? tempVisits.Where(x => x.IsEnter).ToList() : new List<Visits>();
+            tempVisitList = IsClickExitFilter ? tempVisits.Where(x => !x.IsEnter).ToList() : new List<Visits>();
+
+
+            Visits.ReplaceRange(tempVisitList);
+        
+            
         }
 
     }

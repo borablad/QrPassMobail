@@ -13,5 +13,8 @@ namespace QrPassMobail.Models
         public DateTime Date { get; set; }
         [JsonProperty("_id")]
         public string id { get; set; }
+
+
+        public bool IsEnter { get; set; }
     }
 }
