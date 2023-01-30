@@ -27,8 +27,12 @@ namespace QrPassMobail.ViewModels
             catch
             {
                 ShowWarning("Ошибка", "Данных нет");
-
             }
+         
+            tempVisits = new List<Visits>();
+            tempVisits.Add(new Models.Visits { Date = DateTime.Now, id = "1", Username = "boblandy" });
+            tempVisits.Add(new Models.Visits { Date = DateTime.Now, id = "1", Username = "boblandy" });
+            tempVisits.Add(new Models.Visits { Date = DateTime.Now, id = "1", Username = "boblandy" });
 
             Visits.ReplaceRange(tempVisits);
 
