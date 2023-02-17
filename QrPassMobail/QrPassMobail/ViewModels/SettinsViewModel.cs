@@ -12,7 +12,7 @@ namespace QrPassMobail.ViewModels
     public partial class SettinsViewModel : BaseViewModel
     {
         [ObservableProperty]
-        private bool systemTheme, lightTheme, darkTheme, isExpanded;
+        private bool systemTheme, lightTheme, darkTheme, isExpanded, isServExpanded, isLandExpanded;
         [ObservableProperty]
         private string userThem;
 

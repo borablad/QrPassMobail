@@ -56,7 +56,7 @@ namespace QrPassMobail.ViewModels
         private async void Login()
         {
 
-            await Shell.Current.GoToAsync($"{nameof(MainPage)}");
+            await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
             return;
             IsBusy = true;
             try

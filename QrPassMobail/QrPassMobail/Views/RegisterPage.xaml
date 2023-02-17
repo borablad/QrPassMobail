@@ -16,48 +16,65 @@
         <vm:RegisterPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid >
+        <ScrollView>
+              <Grid >
 
-            <Frame BackgroundColor="{StaticResource Primary}" Margin="40" Grid.Row="0" HorizontalOptions="Center"  VerticalOptions="StartAndExpand">
-                <Frame Margin="8" CornerRadius="13" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" >
-                    <Label Text="{x:Static fa:FontAwesomeIcons.Qrcode}" FontFamily="FAS" FontAttributes="Bold" FontSize="75" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Margin="30"/>
-                </Frame>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="2" Command="{Binding AdminCommand}" />
-                </Frame.GestureRecognizers>
-            </Frame>
+                    <Frame BackgroundColor="{StaticResource Primary}" Margin="40" Grid.Row="0" HorizontalOptions="Center"  VerticalOptions="StartAndExpand">
+                        <Frame Margin="8" CornerRadius="13" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" >
+                            <Label Text="{x:Static fa:FontAwesomeIcons.Qrcode}" FontFamily="FAS" FontAttributes="Bold" FontSize="75" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Margin="30"/>
+                        </Frame>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="2" Command="{Binding AdminCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
 
-            <StackLayout Spacing="5"  VerticalOptions="CenterAndExpand" Padding="40"  TranslationY="30" >
+                    <StackLayout Spacing="5"  VerticalOptions="CenterAndExpand" Padding="40,60,40,0"  TranslationY="50" >
 
-                <Label Text="Логин"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>
-                <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="10" >
+                        <Label Text="Иин"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>
+                        <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="10" >
 
-                    <Entry Text="{Binding Uname}"  Placeholder="Введите логин"  />
-                </Frame>
+                            <Entry Text="{Binding Uname}" Keyboard="Numeric"  Placeholder="Введите логин"  />
+                        </Frame>
 
-                <Label Text="Пароль"  FontAttributes="Bold"  FontSize="Micro"  Margin="10,5" />
-                <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="10">
+                         <Label Text="Данные пользователя"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>
+                        <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="10" >
 
-                    <Entry Text="{Binding Pass}"  FontSize="Default" Placeholder="Введите пароль" IsPassword="True" />
-                </Frame>
+                            <Entry Text="{Binding Uname}"  Placeholder="Введите имя"  />
+                        </Frame>
+                        <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="10" >
 
-
-                <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="10">
-
-                    <Entry Text="{Binding PasswordRepeat}" FontSize="Default" Placeholder="Повторите пароль" IsPassword="True" />
-                </Frame>
-
-
-                <Button Text="Регистрация"  Command="{Binding RegisterCommand}" Padding="0,15" HorizontalOptions="FillAndExpand" Margin="0,25" BackgroundColor="{StaticResource Primary}" CornerRadius="10"/>
+                            <Entry Text="{Binding Uname}"  Placeholder="Введите фамилию"  />
+                        </Frame>
 
 
-            </StackLayout>
+
+                        <Label Text="Пароль"  FontAttributes="Bold"  FontSize="Micro"  Margin="10,5" />
+                        <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="10">
+
+                            <Entry Text="{Binding Pass}"  FontSize="Default" Placeholder="Введите пароль" IsPassword="True" />
+                        </Frame>
+
+
+
+                        <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="10">
+
+                            <Entry Text="{Binding PasswordRepeat}" FontSize="Default" Placeholder="Повторите пароль" IsPassword="True" />
+                        </Frame>
+
+
+                        <Button Text="Регистрация"  Command="{Binding RegisterCommand}" Padding="0,15" HorizontalOptions="FillAndExpand" Margin="0,25" BackgroundColor="{StaticResource Primary}" CornerRadius="10"/>
+
+
+                    </StackLayout>
             
-            <!--<Image  Source="{AppThemeBinding Dark=gosu_logo_w, Light=gosu_logo}" HeightRequest="20" HorizontalOptions="End" VerticalOptions="End" Margin="10"/>-->
+                    <!--<Image  Source="{AppThemeBinding Dark=gosu_logo_w, Light=gosu_logo}" HeightRequest="20" HorizontalOptions="End" VerticalOptions="End" Margin="10"/>-->
 
-            <Grid IsVisible="{Binding IsBusy}" BackgroundColor="{StaticResource TransperentDark}"  >
-                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Scale="0.3" Color="{StaticResource Primary}"/>
+                    <Grid IsVisible="{Binding IsBusy}" BackgroundColor="{StaticResource TransperentDark}"  >
+                        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Scale="0.3" Color="{StaticResource Primary}"/>
+                    </Grid>
             </Grid>
-        </Grid>
+
+        </ScrollView>
+      
     </ContentPage.Content>
     </ContentPage>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QrPassMobail.Views.StatPage"
              xmlns:fa="clr-namespace:FontAwesome"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:vm="clr-namespace:QrPassMobail.ViewModels"
              xmlns:model="clr-namespace:QrPassMobail.Models"
              Shell.NavBarIsVisible="False">
@@ -12,10 +13,13 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+             <xct:InvertedBoolConverter x:Key="InvertedBoolConverter"/>
             <DataTemplate x:Key="VisitTemplate" >
                 <Frame x:DataType="model:Visits" >
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="{x:Static fa:FontAwesomeIcons.RightToBracket}" FontFamily="FAS" TextColor="{StaticResource GreenButton}" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+                        <Label Text="{x:Static fa:FontAwesomeIcons.RightToBracket}" FontFamily="FAS" TextColor="Green" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+                        <Label Text="{x:Static fa:FontAwesomeIcons.RightFromBracket}" FontFamily="FAS" TextColor="Red" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+
                         <Label Text="{Binding Username}" FontAttributes="Bold" Margin="5" FontSize="Body" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
                         <Label Text="{Binding Date}" FontAttributes="Bold" Margin="5" FontSize="Subtitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
                     </StackLayout>
@@ -27,16 +31,27 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="40,20" >
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="40,20,0,20" >
                     <Frame BackgroundColor="{StaticResource Primary}" >
                         <Frame Margin="4" CornerRadius="12" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}">
                             <Label Text="{x:Static fa:FontAwesomeIcons.User}" FontFamily="FAS" TextColor="{StaticResource Primary}" Margin="20" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
                         </Frame>
                     </Frame>
-                    <Label Text="User@gmail.com" FontAttributes="Bold" Margin="5" FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+                    <StackLayout>
+                        <Label Text="User@gmail.com" FontAttributes="Bold" Margin="5,5,0,0" FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true"/>
+                        <Label  FontAttributes="Bold" Margin="5,0,0,0" FontSize="Subtitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="true">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="userName" />
+                                    <Span Text=" " />
+                                    <Span Text="userLastName" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
                 </StackLayout>
                 <StackLayout Padding="15,5" BindableLayout.ItemsSource="{Binding Visits}" BindableLayout.ItemTemplate="{StaticResource VisitTemplate}" Spacing="10">
-
+                   
                 </StackLayout>
             </StackLayout>
         </ScrollView>

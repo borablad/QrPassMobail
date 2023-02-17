@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -91,7 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QrPassMobail\QrPassMobail.csproj">
-      <Project>{8CB06B0D-7090-47CD-B06A-B850CE4F51A7}</Project>
+      <Project>{1F981371-E8FF-4E8D-AB58-DA03A760A76B}</Project>
       <Name>QrPassMobail</Name>
     </ProjectReference>
   </ItemGroup>

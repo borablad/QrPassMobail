@@ -54,33 +54,88 @@
                         </xct:Expander>
                     </StackLayout>
 
-                    <!--Настройки подключения-->
-                    <StackLayout Spacing="15">
-                        <Label Text="Настройки подключения" FontAttributes="Bold" FontSize="Body"  Margin="15,0"/>
-                        
-                        <StackLayout xct:CornerRadiusEffect.CornerRadius="10" Margin="5,0" Padding="5"  BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}">
-                            <Label Text="http/https" Margin="10,0"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Small" />
-                            <Frame  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="15" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" >
+                     <!-- Выбор языка -->
+                    <StackLayout Grid.Row="1" Orientation="Vertical">
+                        <Label Text="Выбор языка" FontAttributes="Bold" FontSize="Body"  Margin="15,0"/>
+                        <xct:Expander xct:CornerRadiusEffect.CornerRadius="10" Margin="5,0" Padding="5" BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark}, Light={StaticResource HeaderBarBackgroundColorLight}}"  HorizontalOptions="FillAndExpand" ExpandAnimationLength="375" IsExpanded="{Binding IsLandExpanded}"
+                                    >
+                            <xct:Expander.Header>
+                                <StackLayout  Orientation="Horizontal" Padding="5"  >
+                                    <Label  Text="Текущий язык "  FontAttributes="Bold" FontSize="Small" HorizontalOptions="Start" VerticalOptions="Center" />
+                                    <Label  Text="{Binding UserThem}"  FontAttributes="Bold" FontSize="Small" HorizontalOptions="Start" VerticalOptions="Center" />
+                                    <Label Text="{x:Static fa:FontAwesomeIcons.ChevronDown}" FontFamily="FAS" HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand" IsVisible="{Binding IsLandExpanded,Converter={StaticResource InvertedBoolConverter}}"
+                                           FontSize="Small" Margin="17,0" />
+                                    <Label Text="{x:Static fa:FontAwesomeIcons.ChevronUp}" FontFamily="FAS" HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand" IsVisible="{Binding IsLandExpanded}"
+                                               FontSize="Small" Margin="17,0" />
+                                </StackLayout>
+                            </xct:Expander.Header>
+                            <StackLayout  Spacing="8" Padding="10"   >
 
-                                <Entry Text="{Binding SchemeM}" Margin="10,5"  Placeholder="http"  />
-                            </Frame>
-                        </StackLayout>
-                        <StackLayout xct:CornerRadiusEffect.CornerRadius="10" Margin="5,0" Padding="5"  BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}">
-                        <Label Text="Host сервера" Margin="10,0"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Small"/>
-                        <Frame  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="10,5"  CornerRadius="15"  BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" >
+                                <StackLayout xct:CornerRadiusEffect.CornerRadius="8" Orientation="Horizontal"  BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}">
+                                    <Label Text="Русский" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Start" Margin="10"/>
+                                    <Switch IsToggled="{Binding SystemTheme}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Toggled="Switch_Toggled_1"/>
 
-                                <Entry Text="{Binding HostM}" Margin="10,5"  Placeholder="javajava.com"  />
-                            </Frame>
-                        </StackLayout>
-                        <StackLayout xct:CornerRadiusEffect.CornerRadius="10" Margin="5,0" Padding="5"  BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}">
-                            <Label Text="Port сервера" Margin="10,0"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Small"  />
-                        <Frame  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="10,5"  CornerRadius="15" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" >
+                                </StackLayout>
 
-                                <Entry Text="{Binding PortM}" Margin="10,5"  Placeholder="8000"  />
-                            </Frame>
-                        </StackLayout>
+                                <StackLayout xct:CornerRadiusEffect.CornerRadius="8" Orientation="Horizontal" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}">
+                                    <Label Text="Казак тiлi" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="10"/>
+                                    <Switch IsToggled="{Binding LightTheme}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Toggled="Switch_Toggled_2"/>
+                                </StackLayout>
 
+                                <StackLayout xct:CornerRadiusEffect.CornerRadius="8" Orientation="Horizontal"  BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColorLight}}" >
+                                    <Label Text="English" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="10"/>
+                                    <Switch IsToggled="{Binding DarkTheme}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Toggled="Switch_Toggled_3"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </xct:Expander>
                     </StackLayout>
+
+                    <!--Настройки подключения-->
+                    <StackLayout Grid.Row="1" Orientation="Vertical">
+                        <Label Text="Настройки подключения" FontAttributes="Bold" FontSize="Body"  Margin="15,0"/>
+                        <xct:Expander xct:CornerRadiusEffect.CornerRadius="10" Margin="5,0" Padding="5" BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark}, Light={StaticResource HeaderBarBackgroundColorLight}}"  HorizontalOptions="FillAndExpand" ExpandAnimationLength="375" IsExpanded="{Binding IsServExpanded}"
+                                    >
+                            <xct:Expander.Header>
+                                <StackLayout  Orientation="Horizontal" Padding="5"  >
+                                    <Label  Text="Настройки подключения"  FontAttributes="Bold" FontSize="Small" HorizontalOptions="Start" VerticalOptions="Center" />
+                                    
+                                    <Label Text="{x:Static fa:FontAwesomeIcons.ChevronDown}" FontFamily="FAS" HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand" IsVisible="{Binding IsServExpanded,Converter={StaticResource InvertedBoolConverter}}"
+                                           FontSize="Small" Margin="17,0" />
+                                    <Label Text="{x:Static fa:FontAwesomeIcons.ChevronUp}" FontFamily="FAS" HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand" IsVisible="{Binding IsServExpanded}"
+                                               FontSize="Small" Margin="17,0" />
+                                </StackLayout>
+                            </xct:Expander.Header>
+                            <StackLayout Spacing="15">
+                                <Label Text="Настройки подключения" FontAttributes="Bold" FontSize="Body"  Margin="15,0"/>
+                        
+                                <StackLayout xct:CornerRadiusEffect.CornerRadius="10" Margin="5,0" Padding="5"  BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}">
+                                    <Label Text="http/https" Margin="10,0"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Small" />
+                                    <Frame  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="15" BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}" >
+
+                                        <Entry Text="{Binding SchemeM}" Margin="10,5"  Placeholder="http"  />
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout xct:CornerRadiusEffect.CornerRadius="10" Margin="5,0" Padding="5"  BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}">
+                                <Label Text="Host сервера" Margin="10,0"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Small"/>
+                                <Frame  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="10,5"  CornerRadius="15"  BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}" >
+
+                                        <Entry Text="{Binding HostM}" Margin="10,5"  Placeholder="javajava.com"  />
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout xct:CornerRadiusEffect.CornerRadius="10" Margin="5,0" Padding="5"  BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}">
+                                    <Label Text="Port сервера" Margin="10,0"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Small"  />
+                                <Frame  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="10,5"  CornerRadius="15" BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}" >
+
+                                        <Entry Text="{Binding PortM}" Margin="10,5"  Placeholder="8000"  />
+                                    </Frame>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </xct:Expander>
+                    </StackLayout>
+
+
+                    
 
 
                 </StackLayout>
