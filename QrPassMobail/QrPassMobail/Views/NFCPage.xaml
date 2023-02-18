@@ -3,14 +3,55 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:QrPassMobail.ViewModels"
+    xmlns:fa="clr-namespace:FontAwesome"
+    xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+    Shell.NavBarIsVisible="False"
     x:Class="QrPassMobail.Views.NFCPage">
     <ContentPage.BindingContext>
         <vm:NFCPageViewModel/>
     </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <Grid RowSpacing="0" ColumnSpacing="0" RowDefinitions="1*,*,1*" ColumnDefinitions="3*,*,3*">
-            <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter"/>
 
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0" RowDefinitions=".3*,*,.3*" ColumnDefinitions=".25*,*,.25*">
+            <StackLayout Grid.Column="0"  Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Start" Padding="10" Margin="20,30" Spacing="13" toolkit:CornerRadiusEffect.CornerRadius="15" VerticalOptions="Start" Orientation="Horizontal" BackgroundColor="{StaticResource Primary}" >
+                <Label FontFamily="FAS" FontSize="Title" Text="{x:Static fa:FontAwesomeIcons.ChevronLeft}" TextColor="White" />
+                <Label FontFamily="FAS" FontSize="Title" Text="{x:Static fa:FontAwesomeIcons.Qrcode}" TextColor="White"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackToQRCommand}" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Grid.Column="1"  Grid.Row="1" toolkit:CornerRadiusEffect.CornerRadius="15"  BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}">
+                <Label Text="Готово к сканированию" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin="0,20" />
+
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,40,0,0" IsVisible="{Binding NFCScan}">
+                    <Frame BackgroundColor="{StaticResource Primary}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,0" Padding="6" CornerRadius="13" >
+                        <Frame Padding="15" >
+                            <Label FontFamily="FAS" FontSize="40" Text="{x:Static fa:FontAwesomeIcons.Qrcode}" HorizontalTextAlignment="Center" Margin="10,10,10,30"  VerticalTextAlignment="Center"  TextColor="{StaticResource Primary}"/>
+                        </Frame>
+                    </Frame>
+                    <Label FontFamily="FAS" FontSize="90" Text="{x:Static fa:FontAwesomeIcons.Mobile}" HorizontalTextAlignment="Center" TranslationY="-45"  VerticalTextAlignment="Start"  TextColor="{StaticResource Primary}"/>
+
+                </StackLayout>
+          
+                    <Frame BackgroundColor="{StaticResource Primary}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,40,0,0" IsVisible="{Binding NFCScan,Converter={StaticResource InvertedBoolConverter}}"  Padding="6" CornerRadius="13" >
+                        <Frame Padding="15" >
+                            <Label FontFamily="FAS" FontSize="50" Text="{x:Static fa:FontAwesomeIcons.Check}" HorizontalTextAlignment="Center" Margin="5"  VerticalTextAlignment="Center"  TextColor="{StaticResource Primary}"/>
+                        </Frame>
+                    </Frame>
+                    
+
+         
+                
+                
+
+                <Label Text="Поднесите телефон к терминалу" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalOptions="EndAndExpand" VerticalTextAlignment="End" Margin="10,40" />
 
             </StackLayout>
 
