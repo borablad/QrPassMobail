@@ -74,6 +74,12 @@ namespace QrPassMobail.ViewModels
             
         }
 
+        [RelayCommand]
+        public async void GoToNFCPage()
+        {
+            AppShell.Current.GoToAsync($"{nameof(NFCPage)}");
+        }
+
 
     }
 }

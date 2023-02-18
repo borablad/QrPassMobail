@@ -12,23 +12,31 @@
         <vm:MainPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid>
-        <StackLayout>
-            <Label Text="{Binding AppVersion}" FontAttributes="Bold" FontSize="Micro" Margin="10,5" HorizontalOptions="End"/>
-            <Frame CornerRadius="15" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="280" WidthRequest="280" >
-                    <zxing:ZXingScannerView  x:Name="_scanView" IsScanning="True" OnScanResult="_scanView_OnScanResult" WidthRequest="280" HeightRequest="280">
-                    <!--<zxing:ZXingScannerView.Behaviors>
-                        <toolkit:EventToCommandBehavior EventName="OnScanResult" Command="{Binding ResultScanCommand}"/>
-                    </zxing:ZXingScannerView.Behaviors>-->
+        <Grid >
+            <Grid RowSpacing="0" ColumnSpacing="0" RowDefinitions=".6*,*,1.25*" ColumnDefinitions=".3*,*,.3*">
+                <Label Text="{Binding AppVersion}" FontAttributes="Bold" FontSize="Micro" Margin="10,5" HorizontalOptions="End"/>
+                <Frame CornerRadius="15" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <zxing:ZXingScannerView  x:Name="_scanView" IsScanning="True" OnScanResult="_scanView_OnScanResult" >
+                        <!--<zxing:ZXingScannerView.Behaviors>
+                            <toolkit:EventToCommandBehavior EventName="OnScanResult" Command="{Binding ResultScanCommand}"/>
+                        </zxing:ZXingScannerView.Behaviors>-->
                     
 
-                </zxing:ZXingScannerView>
-            </Frame>
+                    </zxing:ZXingScannerView>
+                </Frame>
+                <Frame Grid.Column="0" Grid.ColumnSpan="3" Margin="0" Grid.Row="0" Opacity="0.75" CornerRadius="0" BackgroundColor="{StaticResource HeaderBarBackgroundColorDark}" />
+                <Frame Grid.Column="0" Grid.ColumnSpan="3" Margin="0" Grid.Row="2" Opacity="0.75" CornerRadius="0" BackgroundColor="{StaticResource HeaderBarBackgroundColorDark}"/>
+                <Frame Grid.Column="0" Grid.Row="1" Margin="0" Opacity="0.75" CornerRadius="0" BackgroundColor="{StaticResource HeaderBarBackgroundColorDark}"/>
+                <Frame Grid.Column="2" Grid.Row="1" Margin="0" Opacity="0.75" CornerRadius="0" BackgroundColor="{StaticResource HeaderBarBackgroundColorDark}"/>
+                <StackLayout Grid.Column="0" Grid.ColumnSpan="3" Margin="0" Grid.Row="2" VerticalOptions="End" Padding="20,20,20,30" toolkit:CornerRadiusEffect.CornerRadius="20,20,0,0" BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}" >
+                    <Label Text="Вы можете пройти используя NFC" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="Center" />
+                    <Button Text="Перейти" Margin="0,15" TextTransform="None" Command="{Binding GoToNFCPageCommand}" />
 
-        </StackLayout>
-             <Grid IsVisible="{Binding IsBusy}" BackgroundColor="{StaticResource TransperentDark}"  >
-                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Scale="0.3" Color="{StaticResource Primary}"/>
+                </StackLayout>
             </Grid>
+                 <Grid IsVisible="{Binding IsBusy}" BackgroundColor="{StaticResource TransperentDark}"  >
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Scale="0.3" Color="{StaticResource Primary}"/>
+                </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

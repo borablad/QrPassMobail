@@ -65,6 +65,12 @@
                         <TapGestureRecognizer Command="{Binding GoToRegisterCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
+                <Label Text="или" FontAttributes="Bold" FontSize="Small" HorizontalTextAlignment="Center"/>
+                <Label Text="Смена пороля" FontAttributes="Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToRegisterCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
                 
 
             </StackLayout>

@@ -15,7 +15,8 @@ namespace QrPassMobail
             Routing.RegisterRoute(nameof(StatPage), typeof(StatPage));
             Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
             Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
-            
+            Routing.RegisterRoute(nameof(NFCPage), typeof(NFCPage));
+
         }
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
