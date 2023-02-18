@@ -63,11 +63,17 @@ namespace QrPassMobail.Views
             if (CrossNFC.IsSupported)
             {
                 if (!CrossNFC.Current.IsAvailable)
-                    await ShowAlert("NFC is not available");
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        vm.ShowWarning("Ошибка", $"NFC не поддерживается вашим телефоном");
+                    }); ;
 
                 NfcIsEnabled = CrossNFC.Current.IsEnabled;
                 if (!NfcIsEnabled)
-                    await ShowAlert("NFC is disabled");
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        vm.ShowWarning("NFC", $"Включите для входа через NFC");
+                    }); ;
 
                 if (Device.RuntimePlatform == Device.iOS)
                     _isDeviceiOS = true;
@@ -144,7 +150,11 @@ namespace QrPassMobail.Views
         async void Current_OnNfcStatusChanged(bool isEnabled)
         {
             NfcIsEnabled = isEnabled;
-            await ShowAlert($"NFC has been {(isEnabled ? "enabled" : "disabled")}");
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                vm.ShowWarning("NFC", $"{(isEnabled ? "Включен" : "Отключен")}");
+            }); ;
+         ///  await ShowAlert($"NFC has been {(isEnabled ? "enabled" : "disabled")}");
         }
 
         /// <summary>
