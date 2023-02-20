@@ -54,7 +54,7 @@
                         </xct:Expander>
                     </StackLayout>
 
-                     <!-- Выбор языка -->
+                     <!-- Выбор языка 
                     <StackLayout Grid.Row="1" Orientation="Vertical">
                         <Label Text="Выбор языка" FontAttributes="Bold" FontSize="Body"  Margin="15,0"/>
                         <xct:Expander xct:CornerRadiusEffect.CornerRadius="10" Margin="5,0" Padding="5" BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark}, Light={StaticResource HeaderBarBackgroundColorLight}}"  HorizontalOptions="FillAndExpand" ExpandAnimationLength="375" IsExpanded="{Binding IsLandExpanded}"
@@ -88,7 +88,7 @@
                                 </StackLayout>
                             </StackLayout>
                         </xct:Expander>
-                    </StackLayout>
+                    </StackLayout> -->
 
                     <!--Настройки подключения-->
                     <StackLayout Grid.Row="1" Orientation="Vertical">
