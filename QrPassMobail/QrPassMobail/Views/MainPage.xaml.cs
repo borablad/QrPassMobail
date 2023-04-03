@@ -24,7 +24,7 @@ namespace QrPassMobail.Views
         bool _eventsAlreadySubscribed = false;
         bool _isDeviceiOS = false;
         public bool DeviceIsListening
-        {
+        {//fd
             get => _deviceIsListening;
             set
             {

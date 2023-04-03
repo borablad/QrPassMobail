@@ -41,7 +41,7 @@ namespace QrPassMobail.ViewModels
             tempVisits.Add(new Models.Visits { Date = DateTime.Now, id = "1", Username = "boblandy" });
 
             Visits.ReplaceRange(tempVisits);
-            Filtred();
+           // Filtred();
 
         }
 

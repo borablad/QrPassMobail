@@ -5,6 +5,7 @@ using QrPassMobail.Models;
 using QrPassMobail.Views;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -14,7 +15,9 @@ namespace QrPassMobail.ViewModels
     public partial class RegisterPageViewModel:BaseViewModel
     {
         [ObservableProperty]
-        private string uname, pass, passwordRepeat;
+        private string iIN, pass, passwordRepeat, userName,userLastName;
+
+        public string UserFullName { get { return UserName+UserLastName;} }
 
         private bool isAdmin;
         public RegisterPageViewModel() { }
@@ -22,11 +25,19 @@ namespace QrPassMobail.ViewModels
         [RelayCommand]
         private async void Register()
         {
-            if (string.IsNullOrWhiteSpace(Uname) || string.IsNullOrWhiteSpace(Pass) || string.IsNullOrWhiteSpace(PasswordRepeat))
+            if (string.IsNullOrWhiteSpace(IIN) || string.IsNullOrWhiteSpace(Pass) || string.IsNullOrWhiteSpace(PasswordRepeat)||string.IsNullOrWhiteSpace(UserName)||string.IsNullOrWhiteSpace(UserLastName))
+
+
             {
                 ShowWarning("Ошибка", "Введите все поля");
                 return;
             }
+
+           /* if (IIN.Length != 12)
+            {
+                ShowWarning("Ошибка", "Введите действущий ИИН");
+                return;
+            }*/
 
           /*  if (Pass.Length < 8) {
                 ShowWarning("Ошибка", "Пароль должен содержать не менее 8 симбволов");
@@ -41,12 +52,10 @@ namespace QrPassMobail.ViewModels
             try
             {
 
-             /*   Preferences.Set("token", "");
-                Preferences.Set("token_type", "");*/
-                var response = await DataStore.RegisterAsync(new UserDto { UserName = Uname, Password = Pass });
+                var response = await DataStore.RegisterAsync(new UserDto { UserName = IIN, Password = Pass });
 
 
-                var res = await DataStore.LoginAsync(new UserDto { UserName = Uname, Password = Pass,IsAdmin=isAdmin });
+                var res = await DataStore.LoginAsync(new UserDto { UserName = IIN, Password = Pass,IsAdmin=isAdmin });
                     SaveUserDadta();
                 
             
@@ -69,8 +78,9 @@ namespace QrPassMobail.ViewModels
 
         private void SaveUserDadta()
         {
-            UserName = Uname;
+            UserName = IIN;
             Password = Pass;
+            USerFullName = UserFullName;
         }
         [RelayCommand]
         private void Admin()

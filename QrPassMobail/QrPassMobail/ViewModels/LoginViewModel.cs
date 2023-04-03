@@ -55,9 +55,9 @@ namespace QrPassMobail.ViewModels
         [RelayCommand]
         private async void Login()
         {
-
+/*
             await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-            return;
+            return;*/
             IsBusy = true;
             try
             {
@@ -88,7 +88,7 @@ namespace QrPassMobail.ViewModels
 
 
 
-
+                
 
             }
             IsBusy = false;

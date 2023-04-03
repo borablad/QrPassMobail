@@ -33,17 +33,17 @@
                         <Label Text="Иин"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>
                         <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="10" >
 
-                            <Entry Text="{Binding Uname}" Keyboard="Numeric"  Placeholder="Введите логин"  />
+                            <Entry Text="{Binding IIN}" Keyboard="Numeric"  Placeholder="Введите логин"  />
                         </Frame>
 
                          <Label Text="Данные пользователя"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>
                         <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="10" >
 
-                            <Entry Text="{Binding Uname}"  Placeholder="Введите имя"  />
+                            <Entry Text="{Binding UserName}"  Placeholder="Введите имя"  />
                         </Frame>
                         <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="10" >
 
-                            <Entry Text="{Binding Uname}"  Placeholder="Введите фамилию"  />
+                            <Entry Text="{Binding UserLastName}"  Placeholder="Введите фамилию"  />
                         </Frame>
 
 

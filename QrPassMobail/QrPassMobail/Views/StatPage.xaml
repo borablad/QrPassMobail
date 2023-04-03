@@ -38,13 +38,13 @@
                         </Frame>
                     </Frame>
                     <StackLayout>
-                        <Label Text="12131415161" FontAttributes="Bold" Margin="5,-5,0,0" FontSize="Title" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" IsVisible="true"/>
+                        <Label Text="{Binding UserName}" FontAttributes="Bold" Margin="5,-5,0,0" FontSize="Title" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" IsVisible="true"/>
                         <Label  FontAttributes="Bold" Margin="5,0,0,0" FontSize="18" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" IsVisible="true">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="userName" />
+                                    <Span Text="{Binding USerFullName}" />
                                     <Span Text="  " />
-                                    <Span Text="userLastName" />
+                                    <Span Text="" />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
