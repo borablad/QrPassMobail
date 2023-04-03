@@ -28,7 +28,7 @@
                 <Frame Grid.Column="0" Grid.ColumnSpan="3" Margin="0" Grid.Row="2" Opacity="0.75" CornerRadius="0" BackgroundColor="{StaticResource BackgroundColorDark}"/>
                 <Frame Grid.Column="0" Grid.Row="1" Margin="0" Opacity="0.75" CornerRadius="0" BackgroundColor="{StaticResource BackgroundColorDark}"/>
                 <Frame Grid.Column="2" Grid.Row="1" Margin="0" Opacity="0.75" CornerRadius="0" BackgroundColor="{StaticResource BackgroundColorDark}"/>
-                <StackLayout Grid.Column="0" Grid.ColumnSpan="3" Margin="0" Grid.Row="2" VerticalOptions="End" Padding="20,20,20,30" toolkit:CornerRadiusEffect.CornerRadius="20,20,0,0" BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}" >
+                <StackLayout Grid.Column="0" Grid.ColumnSpan="3" Margin="0" Grid.Row="2" VerticalOptions="End" Padding="20,20,20,30" IsVisible="false" toolkit:CornerRadiusEffect.CornerRadius="20,20,0,0" BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}" >
                     <Label Text="Вы можете пройти используя NFC" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="Center" />
                     <Button Text="Перейти" Margin="0,15" TextTransform="None" Command="{Binding GoToNFCPageCommand}" />
 

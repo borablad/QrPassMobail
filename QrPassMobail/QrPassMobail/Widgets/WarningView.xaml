@@ -5,7 +5,7 @@
                x:Class="QrPassMobail.Widgets.WarningView"
                xmlns:vm ="clr-namespace:QrPassMobail.ViewModels"
                x:DataType="vm:WarningViewModel"
-               Color="Transparent">
+>
     <toolkit:Popup.BindingContext>
         <vm:WarningViewModel/>
     </toolkit:Popup.BindingContext>
@@ -16,8 +16,8 @@
         </ResourceDictionary>
     </toolkit:Popup.Resources>
         
-            <toolkit:Popup.Content>
-        <Grid BackgroundColor="Transparent" >
+    <toolkit:Popup.Content>
+     
             <Frame CornerRadius="20" VerticalOptions="Center" HorizontalOptions="Center" IsClippedToBounds="True">
                 <StackLayout   Padding="20" IsClippedToBounds="True" >
                     <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center" IsVisible="{Binding Title,Converter={StaticResource IsNotNullOrEmptyConverter}}"/>
@@ -26,9 +26,6 @@
                 </StackLayout>
             </Frame>
 
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CloseTappedCommand}"/>
-            </Grid.GestureRecognizers>
-        </Grid>
+
     </toolkit:Popup.Content>
 </toolkit:Popup>
