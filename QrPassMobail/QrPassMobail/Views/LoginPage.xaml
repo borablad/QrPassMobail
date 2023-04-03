@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
              xmlns:fa="clr-namespace:FontAwesome"
              xmlns:vm="clr-namespace:QrPassMobail.ViewModels"
              x:Class="QrPassMobail.Views.LoginPage"
@@ -33,13 +34,13 @@
                 <Label Text="Иин"  FontAttributes="Bold" FontSize="Micro"  Margin="10,5"/>
                 <Frame Grid.Row="0" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5"  CornerRadius="15" >
 
-                    <Entry Text="{Binding UName}" Margin="10,5" Keyboard="Numeric"  Placeholder="Введите иин"  />
+                    <Entry Text="{Binding UName}" Margin="0"  toolkit:CornerRadiusEffect.CornerRadius="15" FontSize="Default" HeightRequest="40" Keyboard="Numeric"  Placeholder="Введите иин"  />
                 </Frame>
 
                 <Label Text="Пороль"  FontAttributes="Bold"  FontSize="Micro"  Margin="10,5" />
-                <Frame Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="15">
+                <Frame Grid.Row="0" VerticalOptions="Center"   HorizontalOptions="FillAndExpand" Margin="0,5" Padding="0" CornerRadius="15">
 
-                    <Entry Text="{Binding Pass}" Margin="10,5" FontSize="Default" Placeholder="Введите пороль" IsPassword="True" />
+                    <Entry Text="{Binding Pass}" Margin="0"  toolkit:CornerRadiusEffect.CornerRadius="15" FontSize="Default" HeightRequest="40" Placeholder="Введите пароль" IsPassword="True" />
                 </Frame>
 
                 <!--<Label  FontAttributes="Bold" HorizontalOptions="End" FontSize="Small"  Margin="0,10" >

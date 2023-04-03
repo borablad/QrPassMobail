@@ -35,7 +35,7 @@
         <ShellContent Route="RegisterPage" ContentTemplate="{DataTemplate local:RegisterPage}" />
     </TabBar>
 
-    <TabBar>
+    <TabBar x:Name="MyTabbar">
         <ShellContent  Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}"  >
             <!--<local:MainPage OperationType="Sale"/>-->
             <ShellContent.Icon>
