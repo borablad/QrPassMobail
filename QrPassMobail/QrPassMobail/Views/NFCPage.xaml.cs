@@ -1,4 +1,4 @@
-﻿using Android.Gestures;
+﻿//using Android.Gestures;
 using QrPassMobail.ViewModels;
 using System;
 using System.Collections.Generic;

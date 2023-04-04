@@ -4,9 +4,9 @@ using CommunityToolkit.Mvvm;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Plugin.NFC;
 using Xamarin.Forms;
-using static Android.Icu.Text.TimeZoneFormat;
+//using static Android.Icu.Text.TimeZoneFormat;
 using System.Threading.Tasks;
-using Android.Nfc;
+//using Android.Nfc;
 
 namespace QrPassMobail.ViewModels
 {
